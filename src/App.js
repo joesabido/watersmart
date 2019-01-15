@@ -83,7 +83,7 @@ class App extends React.Component{
     /**
      * Handler for the filter.
      * This will tag the images with a visibility flag so the PictureGrid will know which ones to show.
-     * By using a visibility tag instead of filtering the image array itself we avoid any image reloads from server.
+     * By using a visibility tag instead of filtering the image array itself we avoid any image reloads.
      */
     setFilter = (value) => {
         this.setState({
@@ -99,7 +99,8 @@ class App extends React.Component{
 
     /**
      * Handle the user clicking an image.
-     * We extract the whole element based on the imageName (assumed to be unique) and pass it to the lightbox component.
+     * We extract the item from the images array based on the imageName (assumed to be unique) 
+     * and pass it to the lightbox component.
      */
     imageClicked = (imageName) => {
 
