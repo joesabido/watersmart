@@ -11,8 +11,8 @@ import XmlParser from './XmlParser'
 import { Segment } from 'semantic-ui-react'
 
 /** Custom components */
-import PictureGrid from './PictureGrid'
 import ControlForm from './ControlForm'
+import PictureGrid from './PictureGrid'
 import Lightbox from './Lightbox'
 
 /** Assets */
