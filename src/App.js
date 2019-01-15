@@ -13,6 +13,7 @@ import { Segment } from 'semantic-ui-react'
 /** Custom components */
 import PictureGrid from './PictureGrid'
 import ControlForm from './ControlForm'
+import Lightbox from './Lightbox'
 
 /** Assets */
 import 'semantic-ui-css/semantic.min.css'
@@ -37,7 +38,8 @@ class App extends React.Component{
         this.state = {
             images : [],
             sortBy : 'Key',
-            filter : ''
+            filter : '',
+            lightboxItem : false
         }
     }
 
@@ -118,7 +120,10 @@ class App extends React.Component{
                         images={this.state.images}
                         onClick={imageName=>this.imageClicked(imageName)}
                     />
-                </Segment>    
+                </Segment>
+                <Lightbox 
+                    item={this.state.lightboxItem}
+                />
             </div>
         )
     }
