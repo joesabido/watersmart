@@ -6,10 +6,19 @@ import moment from 'moment'
 import { Card, Image } from 'semantic-ui-react'
 
 class ImageCard extends React.Component{
+    /** 
+     * Pass the click event to the parent every time the card is clicked and pass the image name. 
+     * I'm assuming the image name is unique, otherwise we could use the ETag property or anything
+     * else that we know to be unique.
+     */
+    cardClicked = (imageName) => {
+        this.props.onCardClicked(imageName)
+    }
+
     render(){
         let lastModified = moment(this.props.lastModified).format('MMM Do, YYYY h:m A')
         return(
-            <Card>
+            <Card onClick={e=>this.cardClicked(this.props.imageName, e)}>
                 <div className='catImage'>
                     <Image src={this.props.imageUrl}/>
                 </div>

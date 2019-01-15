@@ -18,19 +18,23 @@ import ControlForm from './ControlForm'
 import 'semantic-ui-css/semantic.min.css'
 import './styles.css'
 
+/**
+ * Typically, I would put the source URL in an environment variable
+ * in case the source during development is not the same as in production.
+ * For the sake of simplicity I'll put it here.
+ */
+const baseUrl = 'http://cats.watersmart.s3.amazonaws.com'
+
 /** Main App class */
 class App extends React.Component{
     /**
      * Initialize the state of the app with an empty array as the container for the cat pictures.
      * 
-     * Typically, I would put the source URL in an environment variable
-     * in case the source during development is not the same as in production.
-     * For the sake of simplicity I'll put it in the state.
+     * 
      */
     constructor(){
         super()
         this.state = {
-            baseUrl : 'http://cats.watersmart.s3.amazonaws.com',
             images : [],
             sortBy : 'Key',
             filter : ''
@@ -42,17 +46,21 @@ class App extends React.Component{
      */
     componentDidMount = async () => {
         /** Get the XML from the source. */
-        let response = await axios.get(this.state.baseUrl)
+        let response = await axios.get(baseUrl)
         let xml = response.data
 
         /** Extract the items of interest, converted to a collection of JS objects. */
         let items = XmlParser.getItems(xml, 'Contents')
 
-        /** Save them to the state and add an extra parameter for visibility (used for filtering)*/
+        /** 
+         * Save them to the state and add an extra parameter for visibility (used for filtering).
+         * Also, add a full URL with the image address.
+         */
         this.setState({
             images : items.map(item=>{
                 return{
                     ...item,
+                    url : `${baseUrl}/${item['Key']}`,
                     visible : true
                 }
             })
@@ -99,7 +107,6 @@ class App extends React.Component{
                 <Segment>
                     <PictureGrid 
                         itemsPerPage={4}
-                        baseUrl={this.state.baseUrl}
                         images={this.state.images}
                     />
                 </Segment>    

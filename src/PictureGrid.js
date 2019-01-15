@@ -8,7 +8,8 @@ import { Card, Message } from 'semantic-ui-react'
 /** Custom Components */
 import ImageCard from './ImageCard'
 
-class PictureGrid extends React.Component{    
+class PictureGrid extends React.Component{
+
     render(){
         return(
             <React.Fragment>
@@ -20,9 +21,10 @@ class PictureGrid extends React.Component{
                              */
                             image.visible ? (
                                 <ImageCard 
-                                    imageUrl={`${this.props.baseUrl}/${image['Key']}`}
+                                    imageUrl={image['url']}
                                     imageName={image['Key']}
                                     lastModified={image['LastModified']}
+                                    //onClick={}
                                 />
                             ) : null
                         )
@@ -30,7 +32,7 @@ class PictureGrid extends React.Component{
                 </Card.Group>
 
                 {/** This conditional render will show an error if the filter is too strict by filtering the items with visibility tag set to true. */}
-                
+
                 {this.props.images.filter(image=>image.visible).length ? null : (
                     <Message negative={true}>
                         <p>The filter returned no results. Be less specific.</p>
