@@ -95,6 +95,14 @@ class App extends React.Component{
         })
     }
 
+    /**
+     * Handle the user clicking an image.
+     * We extract the whole element based on the imageName (assumed to be unique) and pass it to the lightbox component.
+     */
+    imageClicked = (imageName) => {
+
+    }
+
     render(){
         return(
             <div className='mainContainer'>
@@ -108,6 +116,7 @@ class App extends React.Component{
                     <PictureGrid 
                         itemsPerPage={4}
                         images={this.state.images}
+                        onClick={imageName=>this.imageClicked(imageName)}
                     />
                 </Segment>    
             </div>

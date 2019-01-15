@@ -9,6 +9,10 @@ import { Card, Message } from 'semantic-ui-react'
 import ImageCard from './ImageCard'
 
 class PictureGrid extends React.Component{
+    /** Pass the clicked element to the parent to show on lightbox. */
+    cardClicked = (imageName) => {
+        this.props.onClick(imageName)
+    }
 
     render(){
         return(
@@ -24,7 +28,7 @@ class PictureGrid extends React.Component{
                                     imageUrl={image['url']}
                                     imageName={image['Key']}
                                     lastModified={image['LastModified']}
-                                    //onClick={}
+                                    onClick={imageName=>this.cardClicked(imageName)}
                                 />
                             ) : null
                         )

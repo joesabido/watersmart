@@ -12,7 +12,7 @@ class ImageCard extends React.Component{
      * else that we know to be unique.
      */
     cardClicked = (imageName) => {
-        this.props.onCardClicked(imageName)
+        this.props.onClick(imageName)
     }
 
     render(){
