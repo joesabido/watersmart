@@ -13,6 +13,7 @@ const sortOptions = [{
 }]
 
 class PictureGrid extends React.Component{
+    /** Pass the handlers to the parent. */
     setSortBy = (target) => {
         this.props.onChangeSortBy(target.value)
     }
