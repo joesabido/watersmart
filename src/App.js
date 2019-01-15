@@ -28,10 +28,12 @@ const baseUrl = 'http://cats.watersmart.s3.amazonaws.com'
 
 /** Main App class */
 class App extends React.Component{
-    /**
-     * Initialize the state of the app with an empty array as the container for the cat pictures.
-     * 
-     * 
+    /** 
+     * Some initialization for the app.
+     * images: Holds the parsed list of images from the XML.
+     * sortBy: Holds the item property used for sorting.
+     * filter: Holds the text used to tag images as visible or not.
+     * lightboxItem: Holds the item currently being displayed in the lightbox. If set to false, the lighbox is hidden. 
      */
     constructor(){
         super()
