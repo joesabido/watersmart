@@ -1,0 +1,13 @@
+body{
+    padding-top: 30px;
+}
+
+.mainContainer{
+    width: 1024px;    
+    margin: 0px auto;
+}
+
+.catImage{
+    max-height: 155px;
+    overflow: hidden;
+}
