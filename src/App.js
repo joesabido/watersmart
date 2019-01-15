@@ -8,7 +8,7 @@ import _ from 'lodash'
 import XmlParser from './XmlParser'
 
 /** UI components */
-import { Segment, Input } from 'semantic-ui-react'
+import { Segment } from 'semantic-ui-react'
 
 /** Custom components */
 import PictureGrid from './PictureGrid'
@@ -48,24 +48,42 @@ class App extends React.Component{
         /** Extract the items of interest, converted to a collection of JS objects. */
         let items = XmlParser.getItems(xml, 'Contents')
 
-        /** Save them to the state */
+        /** Save them to the state and add an extra parameter for visibility (used for filtering)*/
         this.setState({
-            images : items
+            images : items.map(item=>{
+                return{
+                    ...item,
+                    visible : true
+                }
+            })
         })
     }
 
     /**
-     * Handlers for the controls
+     * Handler for when the sort order is set.
+     * This will sort the collection based on a column name carried by "value"
      */
     setSortBy = (value) => {
         this.setState({
-            sortBy : value
+            sortBy : value,
+            images : _.sortBy(this.state.images, [value])
         })
     }
 
+    /**
+     * Handler for the filter.
+     * This will tag the images with a visibility flag so the PictureGrid will know which ones to show.
+     * By using a visibility tag instead of filtering the image array itself we avoid any image reloads from server.
+     */
     setFilter = (value) => {
         this.setState({
-            filter : value
+            filter : value,
+            images : this.state.images.map(image => {
+                return {
+                    ...image,
+                    visible : (image['Key'].includes(value))
+                }
+            })
         })
     }
 
@@ -82,15 +100,12 @@ class App extends React.Component{
                     <PictureGrid 
                         itemsPerPage={4}
                         baseUrl={this.state.baseUrl}
-                        images={this.state.images} 
+                        images={this.state.images}
                     />
                 </Segment>    
             </div>
         )
     }
 }
-/**
- * Mount the App component onto the root div.
- */
 
 ReactDOM.render(<App />, document.getElementById('root'))
