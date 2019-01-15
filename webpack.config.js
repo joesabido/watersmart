@@ -1,11 +1,8 @@
 var Path = require('path')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
-var DotenvPlugin = require('dotenv-webpack')
-
-var environment = process.env.NODE_ENV
 
 module.exports = {
-	mode : environment,
+	mode : 'production',
 	entry : Path.resolve(__dirname, 'src/App.js'),
 	output : {
 		path : Path.resolve(__dirname, 'dist'),
@@ -20,9 +17,6 @@ module.exports = {
 	plugins : [
 		new HtmlWebpackPlugin({
 			template : Path.resolve(__dirname, 'public/index.html')
-		}),
-		new DotenvPlugin({
-			path : './' + environment + '.env'
 		})
 	],
 	performance : {
