@@ -31,7 +31,9 @@ class App extends React.Component{
         super()
         this.state = {
             baseUrl : 'http://cats.watersmart.s3.amazonaws.com',
-            images : []
+            images : [],
+            sortBy : 'Key',
+            filter : ''
         }
     }
 
@@ -52,10 +54,30 @@ class App extends React.Component{
         })
     }
 
+    /**
+     * Handlers for the controls
+     */
+    setSortBy = (value) => {
+        this.setState({
+            sortBy : value
+        })
+    }
+
+    setFilter = (value) => {
+        this.setState({
+            filter : value
+        })
+    }
+
     render(){
         return(
             <div className='mainContainer'>
-                <ControlForm />
+                <ControlForm 
+                    sortBy={this.state.sortBy}
+                    filter={this.state.filter}
+                    onChangeSortBy={value=>this.setSortBy(value)}
+                    onChangeFilter={value=>this.setFilter(value)}
+                />
                 <Segment>
                     <PictureGrid 
                         itemsPerPage={4}
