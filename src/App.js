@@ -5,15 +5,12 @@ import axios from 'axios'
 import _ from 'lodash'
 
 /** Custom classes */
-import XmlParser from './XmlParser'
-
-/** UI components */
-import { Segment } from 'semantic-ui-react'
+import XmlParser from './libraries/XmlParser'
 
 /** Custom components */
-import ControlForm from './ControlForm'
-import PictureGrid from './PictureGrid'
-import Lightbox from './Lightbox'
+import ControlForm from './components/ControlForm'
+import PictureGrid from './components/PictureGrid'
+import Lightbox from './components/Lightbox'
 
 /** Assets */
 import 'semantic-ui-css/semantic.min.css'
