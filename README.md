@@ -21,7 +21,7 @@ The project will be available at: http://localhost:8080
 Open the dist/index.html file in any browser (tested on Google Chrome).
 
 ### Building from source
-If desired, the dist bundle can be rebuild using the following command.
+If desired, the dist bundle can be rebuilt using the following command.
 ```
 $ npm run build
 ```
