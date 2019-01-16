@@ -19,3 +19,9 @@ $ docker-compose up
 The project will be available at: http://localhost:8080
 ### Method #3: If it all fails, use the included build
 Open the dist/index.html file in any browser (tested on Google Chrome).
+
+### Building from source
+If desired, the dist bundle can be rebuild using the following command.
+```
+$ npm run build
+```
