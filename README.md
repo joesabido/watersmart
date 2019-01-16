@@ -1,10 +1,11 @@
 ### How to run this project
-First, clone the GitHub repository into a local folder. After that, the project can be run using any of three methods.
+First, clone the GitHub repository into a local folder. After that, you can run the project in three different ways.
 ```
 $ git clone https://github.com/joesabido/watersmart.git
 ```
-### Method #1: Running with a locally installed instance of NodeJS
-The project was build using the current LTS version of NodeJS (10.5.0) and therefore it's recommended to use the same version. Make sure port 8080 is available.
+The project has been tested using Google Chrome.
+### Method #1: Running with a local install of NodeJS
+The project was built using the current LTS version of NodeJS (10.5.0) and therefore it's recommended to use the same version. Make sure port 8080 is available.
 ```
 $ npm install
 $ npm start
@@ -18,7 +19,7 @@ $ docker-compose up
 ```
 The project will be available at: http://localhost:8080
 ### Method #3: If it all fails, use the included build
-Open the dist/index.html file in any browser (tested on Google Chrome).
+Open the dist/index.html file in a browser.
 
 ### Building from source
 If desired, the dist bundle can be rebuilt using the following command.
