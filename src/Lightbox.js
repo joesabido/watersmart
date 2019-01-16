@@ -1,5 +1,8 @@
+/** Modules */
 import React from 'react'
+import filesize from 'filesize'
 
+/** UI Components */
 import { Modal, Button } from 'semantic-ui-react'
 
 class Lightbox extends React.Component{
@@ -25,6 +28,9 @@ class Lightbox extends React.Component{
                                 <Button primary icon='arrow right' circular={true} />
                             </div>
                         </div>
+                    </div>
+                    <div className='lightboxFooter'>
+                        <h2>{this.props.item['Key']} ({filesize(parseInt(this.props.item['Size']||0))})</h2>
                     </div>
                 </Modal.Content>
             </Modal>
