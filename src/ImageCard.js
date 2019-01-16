@@ -16,7 +16,9 @@ class ImageCard extends React.Component{
     }
 
     render(){
+        /** Format the lastModified attribute into a human friendly format. */
         let lastModified = moment(this.props.lastModified).format('MMM Do, YYYY h:m A')
+        
         return(
             <Card onClick={e=>this.cardClicked(this.props.imageName, e)}>
                 <div className='catImage'>

@@ -4,6 +4,7 @@ import React from 'react'
 /** UI Components */
 import { Grid, Input, Dropdown, Label } from 'semantic-ui-react'
 
+/** Hard coded options for the SorbBy dropdown. */
 const sortOptions = [{
     text : 'Sort by Name',
     value : 'Key'

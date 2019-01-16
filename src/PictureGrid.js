@@ -3,7 +3,7 @@ import React from 'react'
 import _ from 'lodash'
 
 /** UI Components */
-import { Card, Message } from 'semantic-ui-react'
+import { Card, Message, Segment } from 'semantic-ui-react'
 
 /** Custom Components */
 import ImageCard from './ImageCard'
@@ -16,7 +16,7 @@ class PictureGrid extends React.Component{
 
     render(){
         return(
-            <React.Fragment>
+            <Segment>
                 <Card.Group itemsPerRow={this.props.itemsPerPage}>
                     {this.props.images.map(image => {
                         return (
@@ -42,7 +42,7 @@ class PictureGrid extends React.Component{
                         <p>The filter returned no results. Be less specific.</p>
                     </Message>
                 )}
-            </React.Fragment>
+            </Segment>
         )
     }
 }

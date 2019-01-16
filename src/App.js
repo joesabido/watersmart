@@ -73,7 +73,8 @@ class App extends React.Component{
 
     /**
      * Handler for when the sort order is set.
-     * This will sort the collection based on a column name carried by "value"
+     * This will sort the collection based on a column name carried by "value".
+     * The lightbox will take the current sorting when displaying the PREVIOUS and NEXT images.
      */
     setSortBy = (value) => {
         this.setState({
@@ -111,6 +112,10 @@ class App extends React.Component{
         })
     }
     
+    /**
+     * Handle when the user clicks the PREVIOUS IMAGE button.
+     * When reaching the first image, the next click loads the last one of the set.
+     */
     lightboxPrevious = () => {
         let currentItemIndex = this.state.images.findIndex(image=>image['Key']===this.state.lightboxItem['Key'])
 
@@ -125,6 +130,10 @@ class App extends React.Component{
         }
     }
 
+    /**
+     * Handle when the user clicks the NEXT IMAGE button.
+     * When having reached the last image, the first image is loaded.
+     */
     lightboxNext = () => {
         let currentItemIndex = this.state.images.findIndex(image=>image['Key']===this.state.lightboxItem['Key'])
 
@@ -139,6 +148,12 @@ class App extends React.Component{
         }
     }
 
+    /** 
+     * When the user clicks outside the lightbox or the close button, set
+     * the lightboxItem to false, which will also hide the lightbox.
+     * 
+     * The lightbox is only shown when lightboxItem is NOT false.
+     */
     closeLightBox = () => {
         this.setState({
             lightboxItem : false
@@ -148,19 +163,20 @@ class App extends React.Component{
     render(){
         return(
             <div className='mainContainer'>
+                {/** This component has the filter and the sort selector. */}
                 <ControlForm 
                     sortBy={this.state.sortBy}
                     filter={this.state.filter}
                     onChangeSortBy={value=>this.setSortBy(value)}
                     onChangeFilter={value=>this.setFilter(value)}
                 />
-                <Segment>
-                    <PictureGrid 
-                        itemsPerPage={4}
-                        images={this.state.images}
-                        onClick={imageName=>this.imageClicked(imageName)}
-                    />
-                </Segment>
+                {/** This component has the grid with the pictures. */}
+                <PictureGrid 
+                    itemsPerPage={4}
+                    images={this.state.images}
+                    onClick={imageName=>this.imageClicked(imageName)}
+                />
+                {/** This component is the lightbox window. */}
                 <Lightbox 
                     item={this.state.lightboxItem}
                     onClose={()=>this.closeLightBox()}
