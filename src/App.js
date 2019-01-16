@@ -111,18 +111,38 @@ class App extends React.Component{
         })
     }
     
+    lightboxPrevious = () => {
+        let currentItemIndex = this.state.images.findIndex(image=>image['Key']===this.state.lightboxItem['Key'])
+
+        if(currentItemIndex === 0){
+            this.setState({
+                lightboxItem : this.state.images[this.state.images.length - 1]
+            })
+        }else{
+            this.setState({
+                lightboxItem : this.state.images[currentItemIndex - 1]
+            })
+        }
+    }
+
+    lightboxNext = () => {
+        let currentItemIndex = this.state.images.findIndex(image=>image['Key']===this.state.lightboxItem['Key'])
+
+        if(currentItemIndex === (this.state.images.length - 1)){
+            this.setState({
+                lightboxItem : this.state.images[0]
+            })
+        }else{
+            this.setState({
+                lightboxItem : this.state.images[currentItemIndex + 1]
+            })
+        }
+    }
+
     closeLightBox = () => {
         this.setState({
             lightboxItem : false
         })
-    }
-
-    lightboxNext = () => {
-
-    }
-
-    lightboxPrevious = () => {
-
     }
 
     render(){

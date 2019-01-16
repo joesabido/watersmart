@@ -10,6 +10,14 @@ class Lightbox extends React.Component{
         this.props.onClose()
     }
 
+    previousImage = () => {
+        this.props.onPrevious()
+    }
+
+    nextImage = () => {
+        this.props.onNext()
+    }
+
     render(){
         return(
             <Modal basic={true} open={this.props.item !== false} onClose={()=>this.closeModal()}>
@@ -20,12 +28,12 @@ class Lightbox extends React.Component{
                         </div>
                         <div className='lightboxPreviousWrap'>
                             <div className='lightboxPrevious'>
-                                <Button primary icon='arrow left' circular={true} />
+                                <Button primary icon='arrow left' circular={true} onClick={()=>this.previousImage()}/>
                             </div>
                         </div>
                         <div className='lightboxNextWrap'>
                             <div className='lightboxNext'>
-                                <Button primary icon='arrow right' circular={true} />
+                                <Button primary icon='arrow right' circular={true} onClick={()=>this.nextImage()}/>
                             </div>
                         </div>
                     </div>
