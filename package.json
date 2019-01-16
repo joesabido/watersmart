@@ -1,7 +1,7 @@
 {
   "name": "watersmart-cats",
   "version": "1.0.0",
-  "description": "Sample project for WaterSmart hiring process.",
+  "description": "Sample project for WaterSmart.",
   "main": "src/App.js",
   "scripts": {
     "start": "webpack-dev-server --host 0.0.0.0 --port 8080 --disable-host-check --color --watch",
