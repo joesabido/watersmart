@@ -2,7 +2,7 @@
 import React from 'react'
 
 /** UI Components */
-import { Grid, Input, Dropdown } from 'semantic-ui-react'
+import { Grid, Input, Dropdown, Label } from 'semantic-ui-react'
 
 const sortOptions = [{
     text : 'Sort by Name',
@@ -28,7 +28,7 @@ class PictureGrid extends React.Component{
                 <Grid.Row columns={2}>
                     <Grid.Column>
                         <Input 
-                            label='Filter by name' 
+                            label={<Label content='Filter by Name' color='blue' />} 
                             icon='filter' 
                             fluid={true}
                             onChange={(e, target)=>this.setFilter(target, e)}

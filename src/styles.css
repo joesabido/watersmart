@@ -11,3 +11,46 @@ body{
     max-height: 155px;
     overflow: hidden;
 }
+
+/** Lightbox Styles */
+
+.lightboxImageWrapper{
+    width: 800px;
+    height: 600px;
+    border: 10px solid white;
+    border-radius: 20px;
+    background-color: white;
+    resize: both;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: center;
+    position: relative;
+}
+
+.lightboxClose{
+    text-align: right;
+}
+
+.lightboxPreviousWrap{
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+.lightboxPrevious{
+    top: 45%;
+    position: relative;
+}
+
+.lightboxNextWrap{
+    width: 50%;
+    height: 100%;
+    float: right;
+}
+
+.lightboxNext{
+    top: 45%;
+    position: relative;
+    text-align: right;
+}

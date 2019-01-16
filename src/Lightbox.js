@@ -1,11 +1,33 @@
 import React from 'react'
 
+import { Modal, Button } from 'semantic-ui-react'
+
 class Lightbox extends React.Component{
+    closeModal = () => {
+        this.props.onClose()
+    }
+
     render(){
         return(
-            <React.Fragment>
-
-            </React.Fragment>
+            <Modal basic={true} open={this.props.item !== false} onClose={()=>this.closeModal()}>
+                <Modal.Content>
+                    <div className='lightboxImageWrapper' style={{backgroundImage:`url(${this.props.item.url})`}}>
+                        <div className='lightboxClose'>
+                            <Button color='red' icon='close' circular={true} onClick={()=>this.closeModal()}/>
+                        </div>
+                        <div className='lightboxPreviousWrap'>
+                            <div className='lightboxPrevious'>
+                                <Button primary icon='arrow left' circular={true} />
+                            </div>
+                        </div>
+                        <div className='lightboxNextWrap'>
+                            <div className='lightboxNext'>
+                                <Button primary icon='arrow right' circular={true} />
+                            </div>
+                        </div>
+                    </div>
+                </Modal.Content>
+            </Modal>
         )
     }
 }

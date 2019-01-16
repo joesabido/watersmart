@@ -105,6 +105,23 @@ class App extends React.Component{
      * and pass it to the lightbox component.
      */
     imageClicked = (imageName) => {
+        let item = this.state.images.find(image=>image['Key']===imageName)
+        this.setState({
+            lightboxItem : item
+        })
+    }
+    
+    closeLightBox = () => {
+        this.setState({
+            lightboxItem : false
+        })
+    }
+
+    lightboxNext = () => {
+
+    }
+
+    lightboxPrevious = () => {
 
     }
 
@@ -126,6 +143,9 @@ class App extends React.Component{
                 </Segment>
                 <Lightbox 
                     item={this.state.lightboxItem}
+                    onClose={()=>this.closeLightBox()}
+                    onNext={()=>this.lightboxNext()}
+                    onPrevious={()=>this.lightboxPrevious()}
                 />
             </div>
         )
