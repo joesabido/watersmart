@@ -13,7 +13,7 @@ const sortOptions = [{
     value: 'LastModified'
 }]
 
-class PictureGrid extends React.Component{
+class ControlForm extends React.Component{
     /** Pass the handlers to the parent. */
     setSortBy = (target) => {
         this.props.onChangeSortBy(target.value)
@@ -51,6 +51,6 @@ class PictureGrid extends React.Component{
     }
 }
 
-export default PictureGrid
+export default ControlForm
 
 
